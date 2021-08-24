@@ -1,23 +1,44 @@
 #pragma once
 
 #include <string>
-enum forgroundTxtColor_t
-{
-   eDefaultColor=0,
-   eRed,
-   eBlue,
-   eEndOfColorList
-};
 
 struct ILogger
 {
-	virtual void Log(std::string theString, forgroundTxtColor_t fGnd = eDefaultColor) = 0;
+	virtual void Log(std::string string) = 0;
 };
 
 class Logger : public ILogger
 {
 public:
-   // Usage: Log("my text", eRed); -- To display the text in red.
-   //        Log("my text"); -- To display the text in default color.
-	void Log(std::string theString, forgroundTxtColor_t fGnd = eDefaultColor);
+	void Log(std::string string);
+};
+
+class BlueLogger : public ILogger
+{
+public:
+	void Log(std::string string);
+};
+
+class RedLogger : public ILogger
+{
+public:
+	void Log(std::string string);
+};
+
+class YellowLogger : public ILogger
+{
+public:
+	void Log(std::string string);
+};
+
+class CyanLogger : public ILogger
+{
+public:
+	void Log(std::string string);
+};
+
+class MagentaLogger : public ILogger
+{
+public:
+	void Log(std::string string);
 };

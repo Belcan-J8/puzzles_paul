@@ -5,7 +5,7 @@
 class FuelGauge
 {
 public:
-	FuelGauge();
+	FuelGauge( ILogger* fuelLogger);
 	void DecrementFuelLevel();
 private:
 	int fuelLevel;
