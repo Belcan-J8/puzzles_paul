@@ -1,26 +1,17 @@
 #include "Logger.h"
-#include <assert.h>
-#include "..\termcolor\include\termcolor\termcolor.hpp"
 
+#include "termcolor.hpp"
 #include <iostream>
-using namespace termcolor;
 
-void Logger::Log(std::string theString, forgroundTxtColor_t fGnd)
+void Logger::Log(std::string string)
 {
-   // Emits code to terminal to change color
-   switch (fGnd)
-   {
-      case eDefaultColor:
-         break;
-      case eRed:
-         std::cout << red;
-         break;
-      case eBlue:
-         std::cout << blue;
-         break;
-      default:
-         assert(0); // Should never execute.  This reminds coder to account for all colors.
-   }
-   std::cout << theString << reset << std::endl;
-
+	std::cout << string << std::endl;
+}
+void BlueLogger::Log(std::string string)
+{
+	std::cout << termcolor::blue << string << termcolor::reset << std::endl;
+}
+void RedLogger::Log(std::string string)
+{
+	std::cout << termcolor::red << string  << termcolor::reset << std::endl; 
 }
