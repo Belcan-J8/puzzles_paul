@@ -6,11 +6,12 @@
 class Car
 {
 public:
-	Car();
+	Car(ILogger* movementLogger, ILogger *warninglogger);
 	void TurnLeft();
 	void TurnRight();
 	void Accelerate();
 private:
-	FuelGauge fuelGauge;
-	ILogger* logger;
+	FuelGauge *fuelGauge;
+   ILogger* movementlogger;
+//	ILogger* warninglogger;
 };
